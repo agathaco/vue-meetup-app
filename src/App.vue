@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-navigation-drawer fixed app v-model="sideNav">
+    <v-navigation-drawer temporary fixed app v-model="sideNav">
       <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text">
+        <v-list-tile v-for="item in items" :key="item.text" router :to="item.link">
           <v-list-tile-action>
             <v-icon left>{{item.icon}}</v-icon>
           </v-list-tile-action>
@@ -14,14 +14,21 @@
     </v-navigation-drawer>
     <v-toolbar fixed app dark class="primary">
       <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
-      <v-toolbar-title>Dev Meetups</v-toolbar-title>
+      <v-toolbar-title><router-link to="/" tag="span" style="cursor:pointer">Dev Meetups</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat v-for="item in items" :key="item.text">
+        <v-btn flat v-for="item in items" :key="item.text" router :to="item.link">
           <v-icon left>{{item.icon}}</v-icon>
           {{item.text}}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+      <router-view></router-view>
+        </v-layout>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
@@ -31,11 +38,11 @@
       return {
         sideNav: false,
         items: [
-        { icon: 'supervisor_account', text: 'View Meetups' },
-        { icon: 'room', text: 'Organise a Meetup' },
-        { icon: 'person', text: 'Profile' },
-        { icon: 'face', text:'Sign up'},
-        { icon: 'lock_open', text: 'Sign in'}
+        { icon: 'supervisor_account', text: 'View Meetups', link:'/meetups' },
+        { icon: 'room', text: 'Organise a Meetup' , link:'/meetups/new'},
+        { icon: 'person', text: 'Profile', link:'/profile' },
+        { icon: 'face', text:'Sign up', link:'/signup'},
+        { icon: 'lock_open', text: 'Sign in', link:'/signin'}
         ]
       }
     },
