@@ -35,27 +35,14 @@
 export default {
   data() {
     return {
-      meetups: [
-        {
-          imageUrl:
-            "https://www.nationalgeographic.com/content/dam/travel/rights-exempt/Travel-2016/new-orleans/weekday-destination/french-quarter-new-orleans-louisiana.adapt.1900.1.jpg",
-          id: "hgsefygshgf",
-          title: "Meetup in New Orleans"
-        },
-        {
-          imageUrl:
-            "https://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Nice/Nice%2C%20france-xlarge.jpg",
-          id: "ssdfdsfsdfds",
-          title: "Meetup in Nice"
-        },
-        {
-          imageUrl:
-            "https://www.runsociety.com/wp-content/themes/runsociety-4/images/Singapore-Running-Events.jpg",
-          id: "hgfgfhgfhf",
-          title: "Meetup in Singapore"
-        }
-      ]
+ 
     };
+  },
+  computed: {
+    meetups() {
+      return this.$store.getters.featuredMeetups
+
+    }
   },
   methods: {
     onLoadMeetup(id) {
