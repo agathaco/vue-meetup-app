@@ -13,21 +13,19 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed app dark class="primary">
-      <v-toolbar-side-icon @click.native.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up"></v-toolbar-side-icon>
       <v-toolbar-title><router-link to="/" tag="span" style="cursor:pointer">Dev Meetups</router-link></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat v-for="item in items" :key="item.text" router :to="item.link">
+        <v-btn flat v-for="item in items" :key="item.text" :to="item.link">
           <v-icon left>{{item.icon}}</v-icon>
           {{item.text}}</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
+ 
       <router-view></router-view>
-        </v-layout>
-      </v-container>
+
     </v-content>
   </v-app>
 </template>
