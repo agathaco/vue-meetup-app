@@ -34,10 +34,24 @@ export const store = new Vuex.Store({
     },
   },
   mutations: {
+    createMeetup(state, payload) {
+      state.loadedMeetups.push(payload);
+    }
 
   },
   actions: {
-
+    createMeetup({commit}, payload) {
+      const meetup = { //creating the meetup object isnt necessary, we could pass playload directly
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date,
+        id: "hjghkjgkhjg"
+      }
+      // Reach out to firebase and store it
+      commit('createMeetup', meetup) // 'createMeetup is the mutation above
+    }
   },
   getters: {
     loadedMeetups: (state) => {  //sort all meetups by date
@@ -48,15 +62,13 @@ export const store = new Vuex.Store({
     loadedMeetup: (state) => { //load a meetup by id
       return (meetupId) => {
         return state.loadedMeetups.find(meetup => {
-          return meetup.id === meetupId; //returns true if the id of the meetup matches the id we passed above (meetupId)
-        })
-      }
+          return meetup.id === meetupId;
+          //returns true if the id of the meetup matches the id we passed above (meetupId)
+        });
+      };
     },
     featuredMeetups(state, getters) {
-      return getters.loadedMeetups.slice(0,5);
-
-    }
-
-
+      return getters.loadedMeetups.slice(0, 5);
+    },
   },
 });
