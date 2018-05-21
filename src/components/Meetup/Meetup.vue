@@ -11,10 +11,10 @@
             </v-card-media>
             <v-card-text>
                 <div class="info--text">
-                    {{meetup.date}}
+                    {{meetup.date | date}} - {{meetup.location}}
                 </div>
                 <div>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis quidem ipsam tempora eaque asperiores mollitia laborum accusamus, fuga dolorem, nostrum commodi praesentium doloribus illum dolore repellat iure sint laudantium soluta!
+                {{meetup.description}}
                 </div>
                 </v-card-text>
                 <v-card-actions class="pb-3 pr-3">
@@ -31,7 +31,7 @@
     export default {
       props: ['id'],
       computed: {
-        meetup() {
+        meetup () {
           return this.$store.getters.loadedMeetup(this.id)
         }
       },

@@ -11,21 +11,27 @@ export const store = new Vuex.Store({
           'https://www.nationalgeographic.com/content/dam/travel/rights-exempt/Travel-2016/new-orleans/weekday-destination/french-quarter-new-orleans-louisiana.adapt.1900.1.jpg',
         id: 'hgsefygshgf',
         title: 'Meetup in New Orleans',
-        date: '2018-06-23',
+        date: new Date(),
+        location: 'New Orleans', 
+        description: 'New Orleans New Orleans New Orleans New Orleans New Orleans'
       },
       {
         imageUrl:
           'https://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Nice/Nice%2C%20france-xlarge.jpg',
         id: 'ssdfdsfsdfds',
         title: 'Meetup in Nice',
-        date: '2018-07-28',
+        date: new Date(),
+        location: 'Nice', 
+        description: 'Nice Nice Nice Nice Nice Nice Nice'
       },
       {
         imageUrl:
           'https://www.runsociety.com/wp-content/themes/runsociety-4/images/Singapore-Running-Events.jpg',
         id: 'hgfgfhgfhf',
         title: 'Meetup in Singapore',
-        date: '2018-08-16',
+        date: new Date(),
+        location: 'Singapore',
+        description: 'Singapore Singapore Singapore Singapore Singapore Singapore'
       },
     ],
     user: {

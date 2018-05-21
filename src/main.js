@@ -4,7 +4,8 @@ import 'vuetify/dist/vuetify.min.css';
 import colors from 'vuetify/es5/util/colors';
 import App from './App';
 import router from './router';
-import { store } from './store'
+import { store } from './store';
+import DateFilter from './filters/date'
 
 Vue.use(Vuetify, {
   theme: {
@@ -17,6 +18,8 @@ Vue.use(Vuetify, {
     warning: colors.amber.darken2,
   },
 });
+
+Vue.filter('date', DateFilter);
 
 Vue.config.productionTip = false;
 
