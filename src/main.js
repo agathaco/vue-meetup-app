@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+import * as firebase from 'firebase';
 import 'vuetify/dist/vuetify.min.css';
 import colors from 'vuetify/es5/util/colors';
 import App from './App';
 import router from './router';
 import { store } from './store';
-import DateFilter from './filters/date'
+import DateFilter from './filters/date';
+
 
 Vue.use(Vuetify, {
   theme: {
@@ -29,4 +31,14 @@ new Vue({
   router,
   store,
   render: h => h(App),
+  created() {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyCiXLQmVvQyJOVOvIZIWxsKd5-asWut0QI',
+      authDomain: 'meetup-app-99e08.firebaseapp.com',
+      databaseURL: 'https://meetup-app-99e08.firebaseio.com',
+      projectId: 'meetup-app-99e08',
+      storageBucket: 'meetup-app-99e08.appspot.com',
+      messagingSenderId: '135071651927',
+    });
+  },
 });
