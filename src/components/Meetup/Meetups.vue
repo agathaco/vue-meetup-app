@@ -31,10 +31,10 @@
 <script>
   export default {
     computed: {
-      meetups() {
+      meetups () {
         return this.$store.getters.loadedMeetups
       }
-    },
+    }
   }
 </script>
 

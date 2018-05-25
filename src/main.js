@@ -1,13 +1,13 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify';
-import * as firebase from 'firebase';
-import 'vuetify/dist/vuetify.min.css';
-import colors from 'vuetify/es5/util/colors';
-import App from './App';
-import router from './router';
-import { store } from './store';
-import DateFilter from './filters/date';
-
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import * as firebase from 'firebase'
+import 'vuetify/dist/vuetify.min.css'
+import colors from 'vuetify/es5/util/colors'
+import App from './App'
+import router from './router'
+import { store } from './store'
+import DateFilter from './filters/date'
+import AlertCmp from './components/Shared/Alert.vue'
 
 Vue.use(Vuetify, {
   theme: {
@@ -17,13 +17,15 @@ Vue.use(Vuetify, {
     error: colors.red.accent4,
     info: colors.blue.accent2,
     success: colors.green.lighten2,
-    warning: colors.amber.darken2,
-  },
-});
+    warning: colors.amber.darken2
+  }
+})
 
-Vue.filter('date', DateFilter);
+Vue.filter('date', DateFilter)
+Vue.component('app-alert', AlertCmp)
 
-Vue.config.productionTip = false;
+
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
@@ -31,14 +33,14 @@ new Vue({
   router,
   store,
   render: h => h(App),
-  created() {
+  created () {
     firebase.initializeApp({
       apiKey: 'AIzaSyCiXLQmVvQyJOVOvIZIWxsKd5-asWut0QI',
       authDomain: 'meetup-app-99e08.firebaseapp.com',
       databaseURL: 'https://meetup-app-99e08.firebaseio.com',
       projectId: 'meetup-app-99e08',
       storageBucket: 'meetup-app-99e08.appspot.com',
-      messagingSenderId: '135071651927',
-    });
-  },
-});
+      messagingSenderId: '135071651927'
+    })
+  }
+})

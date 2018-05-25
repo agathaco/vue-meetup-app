@@ -32,30 +32,30 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
-        sideNav: false,
+        sideNav: false
       }
     },
     computed: {
-      menuItems() {
+      menuItems () {
         let menuItems = [
-          { icon: 'face', text:'Sign up', link:'/signup'},
-          { icon: 'lock_open', text: 'Sign in', link:'/signin'}
-        ];
+          { icon: 'face', text: 'Sign up', link: '/signup' },
+          { icon: 'lock_open', text: 'Sign in', link: '/signin' }
+        ]
         if (this.userIsAuthenticated) {
           menuItems = [
-            { icon: 'supervisor_account', text: 'View Meetups', link:'/meetups' },
-            { icon: 'room', text: 'Organise a Meetup' , link:'/meetups/new'},
-            { icon: 'person', text: 'Profile', link:'/profile' },
+            { icon: 'supervisor_account', text: 'View Meetups', link: '/meetups' },
+            { icon: 'room', text: 'Organise a Meetup', link: '/meetups/new' },
+            { icon: 'person', text: 'Profile', link: '/profile' }
           ]
         }
-        return menuItems;
+        return menuItems
       },
       userIsAuthenticated () {
         return this.$store.getters.user !== null && this.$store.getters.user !== undefined
-      },
+      }
     },
-    name: 'App',
-  };
+    name: 'App'
+  }
 </script>

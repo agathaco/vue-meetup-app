@@ -12,8 +12,8 @@
       <v-flex xs12>
         <v-carousel style="cursor:pointer">
           <v-carousel-item class="test"
-          v-for="(meetup, id) in meetups" 
-          :src="meetup.imageUrl" 
+          v-for="(meetup, id) in meetups"
+          :src="meetup.imageUrl"
           :key="id"
           @click.native="onLoadMeetup(meetup.id)">
             <div class="title">
@@ -33,27 +33,25 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
- 
-    };
+    }
   },
   computed: {
-    meetups() {
+    meetups () {
       return this.$store.getters.featuredMeetups
-
     }
   },
   methods: {
-    onLoadMeetup(id) {
-      this.$router.push('/meetups/' + id);
+    onLoadMeetup (id) {
+      this.$router.push('/meetups/' + id)
       console.log('test')
     },
-    testing() {
+    testing () {
       console.log('test')
     }
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
