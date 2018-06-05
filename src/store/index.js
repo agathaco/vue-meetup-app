@@ -34,7 +34,6 @@ export const store = new Vuex.Store({
     user: null,
     loading: false,
     error: null
-
   },
   mutations: {
     createMeetup (state, payload) {
@@ -77,6 +76,7 @@ export const store = new Vuex.Store({
               id: user.uid,
               registeredMeetups: []
             }
+            console.log(newUser.id)
             commit('setUser', newUser)
           }
         )
